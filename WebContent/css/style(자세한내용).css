@@ -1,0 +1,410 @@
+@charset "UTF-8";
+       
+   /*  -------------reset을 위한 부분---------------------------   */  
+    a{
+       color: #979797;
+       text-decoration: none;
+    }  
+    
+     a:hover{
+       text-decoration: underline;
+    }
+      
+   /* -----------------------------------------------------------    */
+      .hidden{
+         display: none;
+         }
+ /*------button--------*/    /*  ----공통분모로 만들어둔다.    */     
+         .btn{   
+          display: inline-block;     
+          border: 0px;
+          /* text-indent: -999px;  */   /* 왼쪽으로 숨겨버린다. */
+          cursor: pointer;             
+                 /* 위에 마우스를 올리면 화살표 모양으로 바뀐다. */ 
+          overflow: hidden; 
+          
+          background-image: none;
+          border: 1px solid transparent;
+          border-radius: 4px;
+          
+          padding: 3px 8px;
+          color: #fff;
+          font-weight: bold;                               
+         }
+
+         .btn-img{
+          display: inline-block;     
+          border: 0px;
+          text-indent: -999px;    /* 왼쪽으로 숨겨버린다. */
+          cursor: pointer;             
+                 /* 위에 마우스를 올리면 화살표 모양으로 바뀐다. */ 
+          overflow: hidden; 
+          
+          background-image: none;
+          border: 1px solid transparent;
+         }
+                
+         .btn-default{
+         background:-webkit-radial-gradient(center, ellipse cover, #9dcf40 0%,#698c26 100%);;
+         border-color: #608618;                 
+         }
+                 
+         .btn-default:hover{  /* hover붙은 태그가 우선순위가 더 높다. */
+         text-decoration: none;
+         
+         background:-webkit-radial-gradient(center, ellipse cover, #698c26 0%,#9dcf40 100%);
+         border-color: #608618;                 
+         }
+         
+
+         
+      /*   .btn-img{
+          display: inline-block;     
+          border: 0px;
+          text-indent: -999px;    왼쪽으로 숨겨버린다.
+          cursor: pointer;             
+                 위에 마우스를 올리면 화살표 모양으로 바뀐다. 
+          overflow: hidden; 
+          
+          background-image: none;
+          border: 1px solid transparent;
+          border-radius: 4px;
+         } */
+         
+         .btn-search{
+          width: 31px;
+          height: 25px;
+          background: url("../images/btn-zoom.png");
+          border-left: 1px solid #8CBA34;
+         }
+         
+         .btn-cancel{
+          width: 64px;
+          height: 23px;
+          background: url("../images/btn-cancel.png")
+         }
+         
+         
+      /*    #search-form input[type="submit"]{
+               
+       } */
+       
+      /*  #main a{       
+          display: inline-block;
+          background: url("../images/btn-cancel.png");
+          width: 64px;
+          height: 23px;
+          border: 0px;
+          text-indent: -50px;
+          overflow: hidden;
+          
+       } */
+
+/*---------list 목록스타일----------*/
+       .hr-list {
+           display: inline-block;
+       }
+
+         .hr-list  ul{
+            /* border: 1px solid red; */
+            overflow: auto;  
+       /*  main menu 블록 안에서 오버플로우가 발생하면 그 부분만을 감싸면 된다.  */
+         }
+         
+         .hr-list  li{
+            float: left;
+            padding-left: 9px;
+            background: url("../images/bg-member-menu-vsp.png") no-repeat 13px center;
+         }
+         
+          .hr-list  li:first-child {
+            padding-left: 0px;
+            background: none;
+         } 
+         
+         #main-menu  a{
+             font-family: 맑은고딕, 고딕, sans-serif;
+             font-size: 10px;
+             font-weight: bold;    
+         }
+         
+         #hr-list  li:last-child a{
+          
+         } 
+          #member-menu a{
+         font-family: 맑은고딕, 고딕, sans-serif;
+         font-size: 10px;
+         font-weight: bold;
+         color: #979797;}
+          
+      
+   /*    --------------------------------------------------- */
+      #header
+      {
+         /* background: red; */
+         height: 70px;     
+      }
+     
+      
+      /*    <수직을 수평으로 만들기>      */
+       #main-menu{
+         /*   border: 1px solid blue; */
+           display: inline-block;
+           
+       /*  inline: 컨텐츠가 자신의 크기, 텍스트를 감싸는 역할만 한다.
+            먼저 main menu 부분을 만들어 놓고  */
+       
+         }
+       /*   메인메뉴 부분 표시   */
+         
+         #main-menu ul{
+            /* border: 1px solid red; */
+            overflow: auto;  
+       /*  main menu 블록 안에서 오버플로우가 발생하면 그 부분만을 감싸면 된다.  */
+         
+         }
+       /* overflow: auto; clearfix가 아니어도 그와 같은 효과를 낸다.
+          inline-block: 딱 자기자신만 감싸준다. */
+         
+         #main-menu li{
+            float: left;
+            padding-left: 24px;
+            background: url("../images/bg-main-menu-vsp.png") no-repeat 13px center;
+         }
+     /*        #main-menu li.first{
+            padding-left: 0px;
+            background: none;
+         } */
+         
+          #main-menu li:first-child {
+            padding-left: 0px;
+            background: none;
+         } 
+         
+         #main-menu a{
+             font-family: 맑은고딕, 고딕, sans-serif;
+             font-size: 15px;
+             font-weight: bold;
+             color: #000000;             
+         }
+         
+         #main-menu li:last-child a{
+            color: #ff6a00;
+         }
+/*--------------------------------------------------------------------------*/
+
+#header  > section > *,
+#logo{
+   position: absolute;
+}
+       
+
+#logo{
+
+   display: inline-block;
+   background-color: red;
+   left: 0px;
+   top:23px;
+
+   
+}
+
+#main-menu{
+   display: inline-block;
+    left:200 px;
+   top:27px;
+   
+}
+
+#search-form{
+
+   left: 468px;
+   top:20px;
+   }
+   
+
+
+#member-menu{
+
+right:0px;
+   top:20px;
+}
+         
+         #custom-menu{
+            top:40px;
+         }
+           
+         
+   /*--------------------------------------------------------------------------*/      
+         #search-form  input[type="text"]{
+         width:308px;
+         height:25px;
+         border:5px solid #8CAB34;
+         
+         }
+ /*--------member-menu----------*/
+         
+         #member-menu  li{
+            padding-left: 9px;
+            background: url("../images/bg-member-menu -vsp.png") no-repeat 13px center;
+         }
+
+        #member-menu  a{
+             font-family: 맑은고딕, 고딕, sans-serif;
+             font-size: 10px;
+             font-weight: bold;    
+         }
+        
+         /* >막내 li의 a 태그 */      
+   /*       --메인메뉴 안의 a태그 부분을 따로 설정해줘야 한다. */
+         
+         
+/*     https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Reference  슈도클래스 사용 */
+       /*  예외처리, 첫번째껏만 덮어쓰게된다. 
+           첫번째껏만 이미지 없어진다. 
+           통용된 것을 위에, 특화된 것은 밑에 써준다*/
+        
+       /*   목록을 가로로 나열   */
+       /*     <수직을 수평으로 만들기>     */
+       
+  /*      #search-form input[type="submit"]{
+          background: url("../images/btn-zoom.png");
+          width: 31px;
+          height: 25px;
+          border: 0px;
+          text-indent: -100px;  왼쪽으로 숨겨버린다.
+          border-left: 1px solid #8CBA34;
+          cursor: pointer;  위에 마우스를 올리면 화살표 모양으로 바뀐다.      
+       }
+       
+       #main a{       
+          display: inline-block;
+          background: url("../images/btn-cancel.png");
+          width: 64px;
+          height: 23px;
+          border: 0px;
+          text-indent: -50px;
+          overflow: hidden;
+          
+       }
+        inline 방식: 너비, 높이가 적용되지 x, 블록만 되므로
+           inline이면서 block의 특징만 표현 : inline-block             
+           근데 text-indent가 적용 안됨. 
+           overflow가 발생할 경우의 조치도 해줘야 한다.            */
+
+      .content-container
+      {
+         margin : auto;
+         min-height:inherit;
+         height: 100%;
+         width: 960px;
+         /* background: gray; */
+      }
+      
+      #visual
+      {
+         border-top: solid 3px #8cba34;
+         background: #313131 url("../images/bg-visual.png") no-repeat center;
+         height: 171px;
+      }
+      
+      #visual .content-container
+      {
+         background: #313131 url("../images/customer/visual.png") no-repeat center;
+         
+      }
+
+/*-----------body style------------*/      
+      #body
+      {
+         margin-top: 1px;
+         border-top: solid 5px #8cba34;
+         /* background: blue;  */
+         min-height: 300px;
+         max-height: 300px
+                  background: #313131 url("../images/customer/bg-body.png") repeat-y center;
+
+      }
+      
+      #body .content-container{
+      background :  url("../images/bg-body.png") repeat center;
+      }
+      
+         #aside
+         {
+            /* background: url("../images/logo.png") no-repeat; */
+            background: url("../images/bg-aside-title.png") no-repeat left top;
+            float: left; /* 적재방법 */
+            min-height: inherit;
+            width: 205px;
+            height: 300px;
+           /* overflow: auto;
+             background-size: cover;
+            background-attachment: local; */
+             /* content와 붙어서 같이 가도록 할 경우 */
+            /* background: red; */
+                       
+         }
+      
+         #main
+         {
+           /*  background: red; */
+            float: left;
+            min-height: inherit;
+            height: inherit;
+            padding-left: 35px;
+            padding-top: 45px;
+            width: 755px;
+            box-sizing: border-box;
+         }
+         
+         main의 막내동생
+         .clearfix::after 
+         {
+             content: "";
+             clear: left;
+             display: block;
+             clear: both;
+             display: table;
+         }
+         
+         #main + div
+         {
+            clear: left;
+         }
+         
+         body{
+            font-family: 돋움, Arial, sans-serif;
+            font-size: 11px;
+            color: #979797;
+         }
+ 
+
+/*-----------footer style------------*/
+      #footer
+      {
+         background: #313131;
+         height: 100px;
+      }
+      
+/*       #floating
+      {
+         position: relative;
+         width: 100%;
+         height: 300px;
+         background: pink;
+         left: 0px;
+         top: 10px;
+         bottom: 0px;
+      }
+      
+      #floating > div
+      {
+         position: absolute;
+         left: 0px;
+         top: 0px;
+         width: 100px;
+         heigh: 100px;
+         background: blue;
+      }
+       */

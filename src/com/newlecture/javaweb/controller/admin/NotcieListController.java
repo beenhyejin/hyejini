@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.newlecture.javaweb.entity.Notice;
 
+
 @WebServlet("/admin/notice-list")
 public class NotcieListController extends HttpServlet
 {

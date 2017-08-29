@@ -23,26 +23,25 @@ public class NoticeDetailController extends HttpServlet{
    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {     
        // response.sendRedirect("notice.jsp");
 	   
+	   request.setCharacterEncoding("UTF-8");
+	   
 	   
 		String  _id = request.getParameter("id"); 
 		String id = ""; // 기본값
-
-
+		
 		if(_id != null && !_id.equals(""))
 			id=_id;
-		/*System.out.println(id); */
 
 		//------------------출력-----------------
-		/*List<Notice> detail= null; */
 		Notice n= null;
 
 
-		String sql = "SELECT *FROM Notice WHERE id like ?";
+		String sql = "SELECT *FROM Notice WHERE id = ?";
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		// JDBC 드라이버 로드
 		try {
-		   Class.forName("com.mysql.jdbc.Driver");
+		   Class.forName("com.mysql.jdbc.Driver");  
 
 		   // 연결 / 인증
 		    Connection con = DriverManager.getConnection(url, "sist", "cclass");
@@ -50,7 +49,7 @@ public class NoticeDetailController extends HttpServlet{
 		    // 실행
 		    /*Statement st = con.createStatement();*/
 		    PreparedStatement st = con.prepareStatement(sql);
-		    st.setString(1, "%"+id+"%");
+		    st.setString(1, id);
 
 		    // 결과 가져오기
 		    /*ResultSet rs = st.executeQuery(sql);*/
@@ -60,14 +59,16 @@ public class NoticeDetailController extends HttpServlet{
 		    /*detail= new ArrayList<>();*/
 		      
 		    // 결과 사용하기
-		    while (rs.next()) {
+		    if (rs.next()) {
 		       n = new Notice();
 		       n.setId(rs.getString("ID"));
 		       n.setTitle(rs.getString("TITLE"));
-		       //..
-		         
-		   /*    detail.add(n);*/
+		       n.setHit(rs.getInt("HIT"));
+		       n.setContent(rs.getString("CONTENT"));
+		       n.setRegDate(rs.getDate("REGDATE"));
+		       n.setWriterId(rs.getString("WRITERID"));
 		    }
+
 		      rs.close();
 		      st.close();
 		      con.close();

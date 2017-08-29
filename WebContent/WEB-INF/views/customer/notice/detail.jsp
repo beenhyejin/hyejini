@@ -98,29 +98,7 @@
         
         <main id="main">
         
-        
-        <table border="1">
-            <tr>
-               <th>번호</th>
-               <th>제목</th>
-               <th>작성자</th>
-               <th>작성일</th>
-               <th>조회수</th>
-            </tr>      
-            <%-- <c:forEach var="n"  items="${list}" begin="0" end="3" step="2"> --%>
-            
-            <tr>
-               <td>${detail.id}</td>
-               <td> ${detail.title}</td>
-               <td>newlec</td>
-               <td>${detail.regDate}</td>
-               <td>${detail.hit}</td>         
-            </tr>
-            <%-- </c:forEach> --%>
-         </table>
-        
-        
-         <h2>공지사항</h2>
+          <h2>공지사항</h2>
          
          <div>
             <h3>경로</h3>
@@ -131,6 +109,46 @@
             </ol>
          </div>
        자세한 페이지
+        
+        
+        <table class="table">
+<%--             <tr>
+               <th>번호</th>
+               <td>${detail.id}</td>
+            </tr> --%>
+            <tr>
+                <th >제목</th>
+                <td colspan = "3">${detail.title }</td>   
+            </tr>
+             <tr>
+				<th>작성일</th>
+				<td colspan = "3">${detail.regDate}</td>
+            </tr>
+            <tr>
+               <th>작성자</th>
+               <td>${detail.writerId }</td>
+                <th> 조회수</th>
+				<td>${detail.hit}</td>    
+             </tr>
+             <tr>
+				<th>첨부파일</th>
+				<td colspan = "3"></td>
+            </tr>
+             <tr>
+             	<td colspan="4">${detail.content }</td>
+
+         </table>
+         
+         
+         <div>
+         	<a href= " notice-list" class = "btn btn-default">목록</a>
+         	<a href="notice-edit?id=${detail.id }" class = "btn btn-default">수정</a>
+         	<a href="notice-del" class = "btn btn-default">삭제</a>
+         
+         </div>
+        
+        
+       
       </main>   
       </div>
    </div>
