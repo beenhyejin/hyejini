@@ -27,7 +27,7 @@
 <jsp:include page="../../customer/inc/aside.jsp"/>
     
          <main id="main">
-         <h2>공지사항</h2>
+         <h2 class="main title">공지사항</h2>
 
          <div>
             <h3>경로</h3>
@@ -47,25 +47,40 @@
          </div>
          <table class= "table table-list">
             <tr>
-               <th>번호</th>
+               <th class="w60">번호</th>
                
                <th>제목</th> 
-               <th>작성자</th>
-               <th>작성일</th>
-               <th>조회수</th>
+               <th class="w100">작성자</th>
+               <th class="w150">작성일</th>
+               <th class="w80">조회수</th>
             </tr>
             <c:forEach var="n" items="${list}">
                <tr>
                   <td>${ n.id }</td>
-                  <td><a href = "notice-detail?id=${n.id}">${ n.title } </a></td>
+                  <td class="title text-left"> <a href = "notice-detail?id=${n.id}">${ n.title } </a></td>
                   <td>${n.writerId}</td>
                   <td>${ n.regDate }</td>
                   <td>${ n.hit }</td>
                </tr>
             </c:forEach>
-         </table>
+         </table> 
+         <div>
+         <c:set var="page" value="${param.p}"/>
+         <c:set var="startNum" value="${page-(page-1)%5}"/>
+         <c:set var="lastNum" value="${count/10}"/>
+         ${lastNum}
+         	<div><a href="?p=1">이전</a></div>      
+         	<ul>
+         		<c:forEach var="i" begin="0" end="4">
+	         		<li>
+	         			<a href="?p=${i+startNum}">${startNum+i}</a>
+	         		</li>
+         		</c:forEach>
+         	</ul>
+         	<div><a href="?p=6">다음</a></div>      
+         </div>
          <a class="btn btn-default" href="notice-reg">글쓰기</a> 
-         <a class="btn btn-img btn-cancel" href="">취소</a> 
+<!--          <a class="btn btn-img btn-cancel" href="">취소</a>  -->
          </main>
       </div>
    </div>

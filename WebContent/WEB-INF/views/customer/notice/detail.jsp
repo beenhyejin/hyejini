@@ -17,7 +17,9 @@
       
       <h1 id="logo">
          <a href="">            
-            <img src="../images/logo.png" alt="뉴렉처사이트" />
+            <img src="../images/logo.png" alt="뉴렉처사이트" />  
+            
+            
          </a>
       </h1>
       <section>
@@ -118,7 +120,7 @@
             </tr> --%>
             <tr>
                 <th >제목</th>
-                <td colspan = "3">${detail.title }</td>   
+                <td  class= "text-left" colspan = "3">${detail.title }</td>   
             </tr>
              <tr>
 				<th>작성일</th>
@@ -138,17 +140,12 @@
              	<td colspan="4">${detail.content }</td>
 
          </table>
-         
-         
          <div>
          	<a href= " notice-list" class = "btn btn-default">목록</a>
          	<a href="notice-edit?id=${detail.id }" class = "btn btn-default">수정</a>
          	<a href="notice-del" class = "btn btn-default">삭제</a>
          
          </div>
-        
-        
-       
       </main>   
       </div>
    </div>

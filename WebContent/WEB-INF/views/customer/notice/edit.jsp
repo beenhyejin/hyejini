@@ -39,7 +39,7 @@
 			</div>
 			자세한 페이지
 
-			<form method="get" >
+			<form method="post" ><!-- get 가져오는거 -->
 				<!-- 현재페이지와 같은 url이면 작성하지 않는다 -->
 				<table class="table">
 					<%--             <tr>
@@ -48,7 +48,7 @@
 	            </tr> --%>
 					<tr>
 						<th>제목</th>
-						<td colspan="3"><input name="title" value="${detail.title}"></td>
+						<td  class= "text-left" colspan="3"><input name="title" value="${detail.title}"></td>
 					</tr>
 					<tr>
 						<th>작성일</th>
@@ -71,17 +71,17 @@
 
 
 				<div>
-					<input type="hidden" name="id" value=${notice.id }>
+					<input type="hidden" name="id" value=${ detail.id }>
 					<!-- 어떠한 값을 업데이트 할지 -->
 					<input type="submit" class="btn btn-default" value="저장" />
 					<!-- input에 있는 값, key가 있는 값만 전달 -->
-					<a href="notice-edit?id=${notice.id }" class="btn btn-default">취소</a>
+					<a href="notice-detail?id=${ detail.id }" class="btn btn-default">취소</a>
+					
 				</div>
 			</form>
 			</main>
 		</div>
 	</div>
-	
 <!-- footer부분 -->
 <jsp:include page="../../inc/footer.jsp"/>
 
