@@ -11,14 +11,15 @@ import java.util.List;
 
 import com.newlecture.javaweb.dao.NoticeDao;
 import com.newlecture.javaweb.entity.Notice;
+import com.newlecture.javaweb.entity.NoticeView;
 
 public class JdbcNoticeDao implements NoticeDao {
 	
 	
 
-	public List<Notice> getList(int page,String query) {
-		List<Notice> list= null; 
-		String sql = "SELECT * FROM Notice WHERE title like ? order by regDate DESC limit ?,10";
+	public List<NoticeView> getList(int page, String query) {
+		List<NoticeView> list= null; 
+		String sql = "SELECT * FROM NoticeView WHERE title like ? order by regDate DESC limit ?,10";
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 		
 		int offset= (page-1)*10;
@@ -42,13 +43,15 @@ public class JdbcNoticeDao implements NoticeDao {
 
 			// 결과 사용하기
 			while (rs.next()) {
-				Notice n = new Notice();
+				NoticeView n = new NoticeView();
 				n.setId(rs.getString("ID"));
 				n.setTitle(rs.getString("TITLE"));
+				n.setWriterId(rs.getString("WRITERID"));
+				n.setWriterName(rs.getString("writerID"));
 				n.setHit(rs.getInt("HIT"));
 				n.setContent(rs.getString("CONTENT"));
 				n.setRegDate(rs.getDate("REGDATE"));
-				n.setWriterId(rs.getString("WRITERID"));
+				n.setCountCmt(rs.getInt("countCmt"));
 
 				list.add(n);
 			}
@@ -62,7 +65,7 @@ public class JdbcNoticeDao implements NoticeDao {
 		}
 
 		return list;
-	}
+	} 
 
 	public int getCount() {
 		int count= 0;
@@ -83,8 +86,9 @@ public class JdbcNoticeDao implements NoticeDao {
 			// 결과 가져오기
 			ResultSet rsCount = stCount.executeQuery(sqlCount);
 
+			rsCount.next();
+			
 			// Model
-
 			count = rsCount.getInt("count");
 
 			// 결과 사용하기
@@ -102,14 +106,14 @@ public class JdbcNoticeDao implements NoticeDao {
 	}
 
 	@Override
-	public Notice get(String id) {
+	public NoticeView get(String id) {
 			
-
 			//------------------출력-----------------
-			Notice n= null;
+			NoticeView n= null;
 
 
-			String sql = "SELECT * FROM Notice WHERE id = ?";
+			/*String sql = "SELECT * FROM Notice WHERE id = ?";*/
+			String sql = "SELECT * FROM NoticeView WHERE id = ?";
 			String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 			// JDBC 드라이버 로드
@@ -128,13 +132,15 @@ public class JdbcNoticeDao implements NoticeDao {
 
 			    // 결과 사용하기
 			    if (rs.next()) {
-			       n = new Notice();
+			       n = new NoticeView();
 			       n.setId(rs.getString("ID"));
 			       n.setTitle(rs.getString("TITLE"));
 			       n.setHit(rs.getInt("HIT"));
 			       n.setContent(rs.getString("CONTENT"));
 			       n.setRegDate(rs.getDate("REGDATE"));
 			       n.setWriterId(rs.getString("WRITERID"));
+			       n.setWriterName(rs.getString("WRITERNAME"));
+			       n.setCountCmt(rs.getInt("COUNTCMT"));
 			    }
 
 			      rs.close();

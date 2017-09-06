@@ -142,9 +142,7 @@
          </table>
          <div>
          	<a href= " notice-list" class = "btn btn-default">목록</a>
-         	<a href="notice-edit?id=${detail.id }" class = "btn btn-default">수정</a>
-         	<a href="notice-del" class = "btn btn-default">삭제</a>
-         
+
          </div>
       </main>   
       </div>

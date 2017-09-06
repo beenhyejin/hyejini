@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.newlecture.javaweb.dao.NoticeDao;
 import com.newlecture.javaweb.dao.jdbc.*;
 import com.newlecture.javaweb.entity.Notice;
+import com.newlecture.javaweb.entity.NoticeView;
 
 @WebServlet("/customer/notice-list")
 public class NoticeListController extends HttpServlet
@@ -51,15 +52,17 @@ public class NoticeListController extends HttpServlet
 		/*System.out.println(query); */
 
 		//------------------출력-----------------
-		List<Notice> list= null; 
+		List<NoticeView> list= null; 
 		int count=0;
 		
 		//---------------DB(DAO)--------------------
+		System.out.println("db들어옴");
 		NoticeDao noticeDao = new JdbcNoticeDao();
 		list = noticeDao.getList(page, query);
 		count = noticeDao.getCount();
 		
 		request.setAttribute("list", list);
+		request.setAttribute("count", count);
 		
 		/*pageContext.setAttribute("list", list);*/
 		//response.sendRedirect("notice.jsp");

@@ -44,6 +44,8 @@ body{
 	text-indent:10px;
 }
 .text-strong{
+	color:orange;
+	text-weight:bold;
 	
 }
 

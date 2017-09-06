@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 	alert("Hello Javascript");
+	
+	var json=[
+			{id:"1",title:"hello","writer id":"newlec"},
+			{id:"2",title:"good","writer id":"newlec"}
+	];
+	//여러 방식으로 출력할 수 있다
+	alert(json[1].title);
+	alert(json[1]["title"]);
+	alert(json[1]["writer id"]);
+	
+	//문자형식의 명령어를 실행시켜준다. eval()
+	var data = eval("var x = 3; x++");
+	alert(x);
+	
+	//무조건 제이슨을 기반으로 하고 안될 경우 eval을 사용
+	var datas = eval("[3,6,9]");  //키워드는 문자열이어야 하므로 "로 감싸주어야 함
+	alert(datas[1]);
+	var edatas = eval('({id:"1",title:"hello","writer id":"newlec"})');//제이슨 데이터를 parsing할때는 소괄호로 먼저 감싸 주어야 함
+	alert(edatas.title);
+	var jdatas = JSON.parse("[3,6,9]");
+	alert(jdatas[1]); 
+	
+	
+	alert(typeof edatas.title);//type명을 알려줌.
+	
+	var x=3;
+	var y=new Number(3);
+	alert(x===y);
+	alert(x==y);
+	alert(3+3.5);
+	alert(3+"4");
+	alert(3.5+"4");
+	alert(3.5-"2");*/
+	
+/* 	var data = [2,4,6,8,0];
+	var entity = {id:"2",title:"good","writer id":"newlec"};
+ 	
+	for(var i=0; i<data.length;i++)
+		alert(data[i]); 
+		
+	 for(var i in data)
+		alert(data[i]); 
+	for(var k in entity)
+		alert(entity[k]); */
+		
+	/* var add = function(){
+			var sum=0;
+			
+			for(var i=0;i<arguments.length;i++)
+				sum+= arguments[i];
+			return sum;
+		}//function(x,y){return x+y;}//new Function("x,y", "return x+y;");
+	alert(add(3,8,10)); */
+	
+	/* var(1);
+	var(2);
+
+	
+	alert(a);
+	 */
+	 
+//09.06
+	/* //1.
+	 function f1(){
+		 a=1;
+	 }
+	 f1();
+	 alert(a);//1 */
+	 
+	 //2.
+	 function f1(){
+		 var a = 1;
+		 return function f2(){
+			 return a;
+		 }
+	 }
+	var f = f1();
+	var a = f();
+	alert(a);
+	
+	document.write("hello");
+	</script> 
+	
+</head>
+<body>
+	
+	
+</body>
+</html>

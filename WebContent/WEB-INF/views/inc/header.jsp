@@ -34,7 +34,7 @@
             <ul>
                <li><a href="">HOME</a></li>
                <li><a href="">로그인</a></li>
-               <li><a href="">회원가입</a></li>
+               <li><a href="${path}/member/agree">회원가입</a></li>
             </ul>   
          </nav>
             

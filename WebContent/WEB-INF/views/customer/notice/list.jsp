@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-    
+     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -67,17 +68,38 @@
          <div>
          <c:set var="page" value="${param.p}"/>
          <c:set var="startNum" value="${page-(page-1)%5}"/>
-         <c:set var="lastNum" value="${count/10}"/>
-         ${lastNum}
+         <c:set var="lastNum" value="${fn:substringBefore((count/10)==0? count/10: count/10+1,'.')}"/>
+         
+
+
          	<div><a href="?p=1">이전</a></div>      
          	<ul>
          		<c:forEach var="i" begin="0" end="4">
-	         		<li>
-	         			<a href="?p=${i+startNum}">${startNum+i}</a>
-	         		</li>
+         			<c:set var="strong"/>
+         			<c:if test="${page==(startNum+i)}">
+         				<c:set var="strong" value="text-strong"/>
+         			</c:if>
+         			<c:if test="${startNum+i<=lastNum}">
+         				<li><a class="${strong}" href="?p=${startNum+1}">${startNum+i}</a></li>
+         				<%-- 현재페이지에만 포인트주기 방법2
+         				<c:if test="${page==(startNum+i)}"><!-- 현재페이지인 경우 -->
+		         			<li><a class="text-strong" href="?p=${i+startNum}">${startNum+i}</a></li>
+		         		</c:if>
+		         		<c:if test="${page!=(startNum+i)}"><!-- 현재페이지가 아닌 경우 -->
+		         			<li><a href="?p=${i+startNum}">${startNum+i}</a></li>
+		         		</c:if> --%>
+	         		</c:if>
+	         		<c:if test="${startNum+i>lastNum}"> 
+	         		<li>${startNum+i}</li>
+	         		</c:if>
+
          		</c:forEach>
          	</ul>
-         	<div><a href="?p=6">다음</a></div>      
+         	<div>
+         	<c:if test="${lastNum>= startNum+5}">
+         	<a href="?p=${startNum+5}">다음</a>
+         	</c:if>
+         	</div>      
          </div>
          <a class="btn btn-default" href="notice-reg">글쓰기</a> 
 <!--          <a class="btn btn-img btn-cancel" href="">취소</a>  -->
